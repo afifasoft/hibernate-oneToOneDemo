@@ -28,12 +28,17 @@ public class CreateInstructorDemo implements CommandLineRunner{
 			
 			// create the objects
 			Instructor tempInstructor = new Instructor("Mike", "Rose", "rosemike@gmail.com");
+			Instructor tempInstructor1 = new Instructor("John", "K", "johnk@gmail.com");
 			
 			InstructorDetail tempInstructorDetail = new 
 					InstructorDetail("https://youtube.com/mikerose", "Reading Books");
 			
+			InstructorDetail tempInstructorDetail1 = new 
+					InstructorDetail("https://youtube.com/john", "Playing Cricket");
+			
 			// associate the objects
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
+			tempInstructor1.setInstructorDetail(tempInstructorDetail1);
 			
 			// start a transaction
 			session.beginTransaction();
@@ -43,6 +48,7 @@ public class CreateInstructorDemo implements CommandLineRunner{
 			// save the instructor
 			System.out.println("Saving instructor : " + tempInstructor);
 			session.save(tempInstructor);
+			session.save(tempInstructor1);
 			
 			
 			// commit transaction
